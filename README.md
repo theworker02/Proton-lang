@@ -1,6 +1,6 @@
 <div align="center">
 
-# Proton
+# Proton Language
 
 **A systems language platform for time-aware, adaptive, observable software.**
 
