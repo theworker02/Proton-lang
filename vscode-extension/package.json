@@ -1,9 +1,28 @@
 {
   "name": "proton-language-support",
   "displayName": "Proton Language Support",
-  "version": "1.5.3",
+  "description": "VS Code support for Proton, including syntax highlighting, file icons, hover information, and live-buffer diagnostics.",
+  "version": "1.5.5",
   "publisher": "magnificent-language",
+  "author": "magnificent-language",
+  "license": "MIT",
   "icon": "images/Proton.png",
+  "homepage": "https://github.com/theworker02/Proton-lang",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theworker02/Proton-lang.git"
+  },
+  "bugs": {
+    "url": "https://github.com/theworker02/Proton-lang/issues"
+  },
+  "keywords": [
+    "proton",
+    "language",
+    "compiler",
+    "systems",
+    "syntax-highlighting",
+    "file-icons"
+  ],
   "engines": {
     "vscode": "^1.90.0"
   },
