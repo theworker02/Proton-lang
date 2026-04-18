@@ -6,6 +6,7 @@
 
 ![Core Version](https://img.shields.io/badge/core-1.5.2-0B57D0?style=for-the-badge)
 ![VS Code Extension](https://img.shields.io/badge/vscode_extension-1.5.3-007ACC?style=for-the-badge&logo=visualstudiocode&logoColor=white)
+[![Install on VS Code Marketplace](https://img.shields.io/badge/Install%20on-VS%20Code%20Marketplace-blue?logo=visualstudiocode)](https://marketplace.visualstudio.com/items?itemName=magnificent-language.proton-language-support&ssr=false#overview)
 ![Phase](https://img.shields.io/badge/phase-5-6C2BD9?style=for-the-badge)
 ![Backend API](https://img.shields.io/badge/backend-HTTP_API-0F9D58?style=for-the-badge)
 ![Node](https://img.shields.io/badge/node-%3E%3D25-339933?style=for-the-badge&logo=node.js&logoColor=white)
@@ -197,7 +198,7 @@ Current extension metadata:
 
 - package: `proton-language-support`
 - publisher: `magnificent-language`
-- version: `1.5.3`
+- version: `1.5.5`
 
 Local development:
 
