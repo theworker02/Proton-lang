@@ -1,0 +1,47 @@
+{
+  "name": "proton-language-support",
+  "displayName": "Proton Language Support",
+  "version": "1.5.3",
+  "publisher": "magnificent-language",
+  "icon": "images/Proton.png",
+  "engines": {
+    "vscode": "^1.90.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Themes"
+  ],
+  "activationEvents": [
+    "onLanguage:proton"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "proton",
+        "aliases": [
+          "Proton",
+          "proton"
+        ],
+        "extensions": [
+          ".ptn"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "proton",
+        "scopeName": "source.proton",
+        "path": "./syntaxes/proton.tmLanguage.json"
+      }
+    ],
+    "iconThemes": [
+      {
+        "id": "proton-file-icons",
+        "label": "Proton File Icons",
+        "path": "./icons/proton-icon-theme.json"
+      }
+    ]
+  }
+}

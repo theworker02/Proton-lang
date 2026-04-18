@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build-proton-extension",
+      "type": "shell",
+      "command": "node",
+      "args": [
+        "${workspaceFolder}/scripts/build-vscode-extension.mjs"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

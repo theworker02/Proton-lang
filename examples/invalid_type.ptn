@@ -1,0 +1,6 @@
+module demo.invalid;
+
+fn main() -> int :: strict {
+  let x: i32 = "hello";
+  return 0;
+}

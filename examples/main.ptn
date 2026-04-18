@@ -1,0 +1,54 @@
+module demo.main;
+
+use core.io::print;
+
+meta fn factorial(n: int) -> int :: strict {
+  if n == 0 {
+    return 1;
+  }
+
+  return n * factorial(n - 1);
+}
+
+const table_size: int = factorial(6);
+
+struct Circle {
+  radius: int,
+}
+
+contract Drawable :: O(n) {
+  fn draw(self: Circle) -> void :: strict;
+}
+
+impl Drawable for Circle {
+  fn draw(self: Circle) -> void :: strict {
+    print(self.radius);
+    return;
+  }
+}
+
+@profile(high_performance)
+fn main() -> int :: strict :: parallel {
+  core data: Vec<int> = [1, 2, 3];
+  link shared: Vec<int> = data.link();
+  ghost view: Vec<int> = shared.ghost();
+  let circle: Circle = Circle { radius: 9 };
+
+  mutate(shared) {
+    push(4);
+  }
+
+  spawn audit {
+    print(view);
+  }
+
+  sync {
+    await audit;
+  }
+
+  print(table_size);
+  print(data);
+  print(circle.radius);
+
+  return 0;
+}

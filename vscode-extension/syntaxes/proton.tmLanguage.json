@@ -1,0 +1,82 @@
+{
+  "scopeName": "source.proton",
+  "name": "Proton",
+  "patterns": [
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#comments"
+    }
+  ],
+  "repository": {
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.proton",
+          "match": "\\b(module|use|plugin|requires|analyze|target|rules|detector|when|without|warn|algorithm|timeline|after|every|observe|adapt|adaptive|inject|into|before|goal|minimize|maximize|startup|expose|fn|meta|inline|gpu|let|const|mut|core|link|ghost|struct|type|contract|impl|for|return|if|else|match|spawn|sync|await|mutate|intent|sandbox|graph|node|network|cluster|at|route|channel|send|build|mode|detect|monitor|track|alert|suggest|recommend|self|strict|unsafe|parallel|secure)\\b"
+        },
+        {
+          "name": "constant.language.boolean.proton",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "entity.name.annotation.proton",
+          "match": "@profile"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.proton",
+          "match": "\\b(int|i32|i64|f32|f64|bool|str|void|Vec|MemBlock|HttpResponse|RuntimeInfo|SystemInfo)\\b"
+        },
+        {
+          "name": "entity.name.function.proton",
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b(?=\\s*\\()"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.proton",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.proton",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.proton",
+          "match": "\\b\\d+(?:\\.\\d+)?(?:ms|s|m|h)?\\b"
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.proton",
+          "match": "//.*$"
+        }
+      ]
+    }
+  }
+}

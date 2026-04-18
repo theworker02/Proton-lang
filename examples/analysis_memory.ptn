@@ -1,0 +1,12 @@
+module demo.analysis;
+
+detector MemoryLeak {
+  when alloc without free {
+    warn("Possible memory leak detected");
+  }
+}
+
+fn main() -> int :: strict {
+  let block: MemBlock = core::mem::alloc(256);
+  return 0;
+}

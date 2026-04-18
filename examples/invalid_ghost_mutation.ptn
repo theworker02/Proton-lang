@@ -1,0 +1,16 @@
+module demo.ghosts;
+
+use core.io::print;
+
+fn main() -> int :: strict {
+  core data: Vec<int> = [1, 2, 3];
+  link shared: Vec<int> = data.link();
+  ghost view: Vec<int> = shared.ghost();
+
+  mutate(view) {
+    push(4);
+  }
+
+  print(data);
+  return 0;
+}

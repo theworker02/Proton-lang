@@ -1,0 +1,17 @@
+module demo.spawn;
+
+use core.io::print;
+
+fn main() -> int :: strict :: parallel {
+  core data: Vec<int> = [1, 2, 3];
+
+  spawn bad_worker {
+    print(data);
+  }
+
+  sync {
+    await bad_worker;
+  }
+
+  return 0;
+}

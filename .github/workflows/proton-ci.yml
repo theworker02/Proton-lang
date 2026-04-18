@@ -1,0 +1,17 @@
+name: Proton CI
+on:
+  push:
+  pull_request:
+
+jobs:
+  analyze-build-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 25
+      - run: npm install
+      - run: node ./cli/protonc.ts analyze examples/main.ptn
+      - run: node ./cli/protonc.ts check examples/main.ptn
+      - run: npm test

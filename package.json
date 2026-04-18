@@ -1,0 +1,23 @@
+{
+  "name": "proton-lang",
+  "version": "1.5.2",
+  "description": "Proton Phase 5 compiler, analyzer engine, adaptive runtime features, CLI tooling, and editor support.",
+  "type": "module",
+  "bin": {
+    "protonc": "./cli/protonc.ts",
+    "proton": "./cli/proton.ts",
+    "protonpm": "./cli/protonpm.ts",
+    "protond": "./backend/server.ts"
+  },
+  "scripts": {
+    "protonc": "node ./cli/protonc.ts",
+    "proton": "node ./cli/proton.ts",
+    "protonpm": "node ./cli/protonpm.ts",
+    "backend": "node ./backend/server.ts",
+    "test": "node ./tests/run-tests.ts"
+  },
+  "engines": {
+    "node": ">=25.0.0"
+  },
+  "license": "MIT"
+}

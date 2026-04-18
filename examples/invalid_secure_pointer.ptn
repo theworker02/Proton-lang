@@ -1,0 +1,11 @@
+module demo.secure;
+
+fn read(ptr: *int) -> int :: secure {
+  return *ptr;
+}
+
+fn main() -> int :: strict {
+  let value: int = 2;
+  let ptr: *int = &value;
+  return read(ptr);
+}

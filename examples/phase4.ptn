@@ -1,0 +1,68 @@
+module demo.phase4;
+
+use core.io::print;
+use plugin "git";
+
+requires net;
+
+analyze {
+  target: phase4.ptn;
+  rules: [
+    performance,
+    memory,
+    security
+  ];
+}
+
+detector MemoryLeak {
+  when alloc without free {
+    warn("Possible memory leak detected");
+  }
+}
+
+algorithm SortAlgo<T> {
+  requires Comparable;
+
+  fn run(data: Vec<T>) -> Vec<T> :: strict {
+    return data;
+  }
+}
+
+network cluster {
+  node "auth" at "10.0.0.1";
+  node "db" at "10.0.0.2";
+  route auth -> db;
+}
+
+channel events;
+
+build {
+  mode: optimized;
+  analyze: true;
+  detect: memory, performance;
+}
+
+monitor {
+  track: cpu, memory;
+  alert if memory > 80%;
+}
+
+suggest {
+  if loop inefficient {
+    recommend("Use parallel execution");
+  }
+}
+
+fn main() -> int :: strict :: parallel {
+  let block: MemBlock = core::mem::alloc(64);
+  let diff: str = git.diff();
+  let response: HttpResponse = core::net::http_get("https://example.internal/users");
+
+  send events { user_logged_in };
+
+  print(diff);
+  print(response.body);
+
+  core::mem::free(block);
+  return 0;
+}

@@ -1,0 +1,66 @@
+module demo.main;
+
+use core.io::print;
+
+timeline {
+  at "startup" -> init();
+  after 5s -> refresh_cache();
+  every 10s -> monitor_runtime();
+}
+
+goal {
+  minimize latency;
+  maximize throughput;
+}
+
+inject into handle_requests {
+  before {
+    log("Starting request handling");
+  }
+
+  after {
+    observe {
+      track: execution_time, memory_usage;
+
+      if execution_time > 100ms {
+        warn("Slow function detected");
+      }
+    }
+  }
+}
+
+fn init() -> void :: strict {
+  print("startup");
+  return;
+}
+
+fn refresh_cache() -> void :: strict {
+  log("refresh cache scheduled");
+  return;
+}
+
+fn monitor_runtime() -> void :: strict {
+  log("monitor scheduled");
+  return;
+}
+
+adaptive fn handle_requests() -> int :: strict :: parallel {
+  let mut profile: str = "balanced";
+
+  goal optimize_performance;
+
+  adapt {
+    if system.cpu < 4 {
+      profile = "low_power";
+    } else {
+      profile = "high_performance";
+    }
+  }
+
+  print(profile);
+  return 0;
+}
+
+fn main() -> int :: strict :: parallel {
+  return handle_requests();
+}

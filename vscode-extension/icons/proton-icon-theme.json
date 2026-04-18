@@ -1,0 +1,10 @@
+{
+  "iconDefinitions": {
+    "proton": {
+      "iconPath": "../images/Proton.svg"
+    }
+  },
+  "fileExtensions": {
+    "ptn": "proton"
+  }
+}
